@@ -1,1 +1,1 @@
-qwe
+package main
