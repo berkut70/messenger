@@ -28,8 +28,8 @@ func main() {
 	router.HandleFunc("/users/login", handlers.HandleLogin(db)).Methods("POST")
 	router.HandleFunc("/messages", handlers.HandleMessages(db)).Methods("POST")
 
-	fmt.Println("Сервер запущен на порту 8080")
-	log.Fatal(http.ListenAndServe(":8080", router))
+	fmt.Println("Сервер запущен на порту 80")
+	log.Fatal(http.ListenAndServe("127.0.0.1:80", router))
 }
 
 func jwtMiddleware(next http.Handler) http.Handler {
