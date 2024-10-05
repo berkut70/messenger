@@ -36,6 +36,7 @@ func jwtMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		tokenString := r.Header.Get("Authorization")
 		if tokenString == "" {
+			fmt.Println("ТОКЕН В ПИВЕ???")
 			http.Error(w, "Необходим токен авторизации", http.StatusUnauthorized)
 			return
 		}
