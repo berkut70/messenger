@@ -11,7 +11,7 @@ import (
 )
 
 func ConnectDB() (*sql.DB, error) {
-	db, err := sql.Open("mysql", "user:password@tcp(host:port)/database")
+	db, err := sql.Open("mysql", "root:Desk3745@tcp(localhost:3306)/messenger")
 	if err != nil {
 		return nil, fmt.Errorf("ошибка подключения к базе данных: %w", err)
 	}
