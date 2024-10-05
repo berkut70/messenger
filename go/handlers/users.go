@@ -3,6 +3,7 @@ package handlers
 import (
 	"database/sql"
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 	"strconv"
@@ -13,6 +14,7 @@ import (
 )
 
 func HandleUsers(db *sql.DB) http.HandlerFunc {
+	fmt.Println("HandleUsers")
 	return func(w http.ResponseWriter, r *http.Request) {
 		switch r.Method {
 		case http.MethodGet:
@@ -43,6 +45,7 @@ func handleGetUser(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 }
 
 func handleCreateUser(w http.ResponseWriter, r *http.Request, db *sql.DB) {
+	fmt.Println("handleCreateUser")
 	var user models.User
 	err := json.NewDecoder(r.Body).Decode(&user)
 	if err != nil {

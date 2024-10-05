@@ -48,6 +48,7 @@ func CheckPassword(hashedPassword string, password string) bool {
 }
 
 func CreateUser(db *sql.DB, user models.User) error {
+	fmt.Println("CREATE USER")
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(user.Password), bcrypt.DefaultCost)
 	if err != nil {
 		return fmt.Errorf("ошибка хеширования пароля: %w", err)

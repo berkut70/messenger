@@ -40,7 +40,7 @@ func jwtMiddleware(next http.Handler) http.Handler {
 			http.Error(w, "Необходим токен авторизации", http.StatusUnauthorized)
 			return
 		}
-
+		fmt.Println("ТОКЕН НЕ В ПИВЕ???")
 		claims, err := utils.ParseJWT(tokenString)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusUnauthorized)
