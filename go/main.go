@@ -29,7 +29,7 @@ func main() {
 	router.HandleFunc("/messages", handlers.HandleMessages(db)).Methods("POST")
 
 	fmt.Println("Сервер запущен на порту 8080")
-	log.Fatal(http.ListenAndServe("89.169.172.158:8080", router))
+	log.Fatal(http.ListenAndServe(":8080", router))
 }
 
 func jwtMiddleware(next http.Handler) http.Handler {
