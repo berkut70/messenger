@@ -20,7 +20,6 @@ func HandleMessages(db *sql.DB) http.HandlerFunc {
 	}
 }
 
-// handleSendMessage - обработчик запроса POST /messages
 func handleSendMessage(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	var message models.Message
 	err := json.NewDecoder(r.Body).Decode(&message)
